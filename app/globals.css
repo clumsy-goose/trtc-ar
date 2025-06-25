@@ -40,7 +40,6 @@ a {
     color-scheme: dark;
   }
 }
-
 .t-tabs__nav-item {
     display: inline-flex;
     font: var(--td-font-body-medium);
@@ -48,5 +47,5 @@ a {
     overflow: hidden;
     z-index: 0;
     cursor: pointer;
-    flex-shrink: 0
+    flex-shrink: 0;
 }

@@ -10,8 +10,6 @@ export default function Base() {
       <main>
         <BasicTabs></BasicTabs>
       </main>
-      <footer className={styles.footer}>
-      </footer>
     </div>
   );
 }

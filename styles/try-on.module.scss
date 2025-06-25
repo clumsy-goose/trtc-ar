@@ -1,11 +1,15 @@
-.tabs{
+.layout{
 	max-width: 1180px;
 	margin: 0 auto;
-	
-	.t-tabs__nav-item{
+	padding: 30px 20px;
+	:global(.t-tabs__nav-item-text-wrapper) {
+		font-weight: 700;
 		font-size: 16px;
-		font-weight: 400;
-		color: #99a2b2;
+		height: 56px;
+	}
+	:global(.t-tabs__nav-item.t-size-m) {
+		height: 56px;
+		line-height: 56px;
 	}
 }
 

@@ -285,18 +285,19 @@ export default function BasicTabs() {
 
   return (
 		<div>
-			<Tabs
-				className={styles.tabs}
-				placement="top"
-				size="medium"
-				defaultValue='makeup'
-			>
-				{tabs.map((item, index) => (
-					<TabPanel key={`tabPanel${index}`} value={item.value} label={item.label}>
-						<TryOnDemo tabVal={item.value as TryOnTabVal} effectList={effectMap[item.value]} />
-					</TabPanel>
-				))}
-			</Tabs>
+      <div className={styles.layout}>
+        <Tabs
+          placement="top"
+          size="medium"
+          defaultValue='makeup'
+        >
+          {tabs.map((item, index) => (
+            <TabPanel key={`tabPanel${index}`} value={item.value} label={item.label}>
+              <TryOnDemo tabVal={item.value as TryOnTabVal} effectList={effectMap[item.value]} />
+            </TabPanel>
+          ))}
+        </Tabs>
+      </div>
 		</div>
   );
 }

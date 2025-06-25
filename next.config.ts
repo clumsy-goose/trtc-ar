@@ -21,10 +21,6 @@ const baseConfig: NextConfig = {
           },
         ],
       },
-      {
-        test: /\.docx$/,
-        use: ['raw-loader'],
-      },
     );
     config.optimization = {
       ...config.optimization,
