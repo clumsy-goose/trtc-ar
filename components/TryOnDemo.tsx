@@ -4,8 +4,8 @@ import { renderTryOnVideo, TryOnTabVal } from './TryOnDemoLayout';
 import { Button, MessagePlugin, Loading } from 'tdesign-react/lib';
 import ArClient from '@/lib/arClient';
 import { useEffect, useState } from 'react';
-import effect0 from '@/public/virtual-try-on/effect0.png';
-import handPng from '@/public/virtual-try-on/hand.png';
+import effect0 from '@/public/image/effect0.png';
+import handPng from '@/public/image/hand.png';
 
 interface Props {
   tabVal: TryOnTabVal;
