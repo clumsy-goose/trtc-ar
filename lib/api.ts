@@ -1,4 +1,3 @@
-// import { request } from './request';
 import sha256 from 'crypto-js/sha256';
 // export const API_DOMAIN = 'test-api.trtc.io';
 // export const webArSignature = async () =>
