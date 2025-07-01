@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-console.log('env: ',process.env.NODE_ENV,process.env.API_DOMAIN);
+console.log('env: ',process.env.NODE_ENV,process.env.LICENSE_KEY,process.env.APPID);
 const baseConfig: NextConfig = {
   transpilePackages: ['tdesign-react'],
   images: {
