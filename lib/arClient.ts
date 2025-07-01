@@ -7,16 +7,14 @@ export interface EffectParam {
   intensity?: number;
 }
 
-const APPID = '101';
-const LICENSE_KEY = '6c2388b3c0c7f739f12d7ea62a691ada';
+const APPID = '1321485964';
+const LICENSE_KEY = '00ae9138661b70e5d6dff713b3145f32';
 
 const videoConfig = { width: 640, height: 480, frameRate: 30 };
 
 async function authFunc() {
-  const {
-    data: { Signature, Timestamp },
-  } = await webArSignature();
-  return { signature: Signature, timestamp: Timestamp };
+  const res = webArSignature();
+  return res;
 }
 
 export default class ArClient {
@@ -114,6 +112,8 @@ export default class ArClient {
 
   bindEvent() {
     this.arSdk.on('created', async () => {
+      console.log("🚀 ~ ArClient ~ this.arSdk.on ~ created:");
+      
       try {
         const filterRes: Promise<any[]> = new Promise((resolve) => {
           const list = getStorage('common-filter-list');
