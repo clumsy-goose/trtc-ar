@@ -55,45 +55,37 @@ export default class ArClient {
       cameraConfig?: any;
     },
   ) {
-    return new Promise<void>(async (resolve, reject) => {
-      const config: any = {
-        auth: authConfig,
-        module: { beautify: true, segmentation: false, handLandmark: true },
-        language: 'en',
-        lazyInit: true,
-        resolution: 'auto',
-        ...arConfig,
-      };
-      console.log('🚀 ~ ArClient ~ config:', config);
+    const config: any = {
+      auth: authConfig,
+      module: { beautify: true, segmentation: false, handLandmark: true },
+      language: 'en',
+      lazyInit: true,
+      resolution: 'auto',
+      ...arConfig,
+    };
+    console.log('🚀 ~ ArClient ~ config:', config);
 
-      if (type === 'camera') {
-        config.camera = cameraConfig;
-      }
+    if (type === 'camera') {
+      config.camera = cameraConfig;
+    }
 
-      if (type === 'stream') {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: false, video: cameraConfig });
-        this.stream = stream;
-        config.input = stream;
-      }
+    if (type === 'stream') {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: false, video: cameraConfig });
+      this.stream = stream;
+      config.input = stream;
+    }
 
-      if (beautifyConfig) {
-        config.beautify = beautifyConfig;
-      }
+    if (beautifyConfig) {
+      config.beautify = beautifyConfig;
+    }
 
-      const arSdk = new ArSdk(config);
-      this.initType = type;
-      this.arSdk = arSdk;
-      this.hasInit = true;
-      this.cameraConfig = cameraConfig;
-
-      try {
-        this.bindEvent();
-      } catch (err) {
-        const message = err instanceof Error ? err.message : String(err);
-        reject(new Error(`Failed to bind events: ${message}`));
-        return;
-      }
-    });
+    const arSdk = new ArSdk(config);
+    this.initType = type;
+    this.arSdk = arSdk;
+    this.bindEvent();
+    this.hasInit = true;
+    this.cameraConfig = cameraConfig;
+  
   }
 
   destroy() {
@@ -158,20 +150,6 @@ export default class ArClient {
     });
     this.arSdk.on('error', (err: any) => {
       console.error('ArSdk error', err);
-      DialogPlugin({
-        header: 'Dialog-Plugin',
-        body: 'Hi, darling! Do you want to be my lover?',
-        onConfirm: ({ e }) => {
-          console.log('confirm clicked', e);
-        },
-        onClose: ({ e, trigger }) => {
-          console.log('e: ', e);
-          console.log('trigger: ', trigger);
-        },
-        onCloseBtnClick: ({ e }) => {
-          console.log('close btn: ', e);
-        },
-      });
       alert(`Init failed: ${err.message || 'Unknown error'}`);
     });
   }
