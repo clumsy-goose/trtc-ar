@@ -86,7 +86,7 @@ export default class ArClient {
       this.bindEvent();
     } catch(err) {
       console.error('Bind event failed', err);
-      alert(`Bind event failed: ${err.message || 'Unknown error'}`);
+      alert(`Bind event failed: failed`);
     }
     
     this.hasInit = true;
