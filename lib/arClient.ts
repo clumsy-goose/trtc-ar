@@ -1,7 +1,6 @@
 import { ArSdk } from 'tencentcloud-webar';
 import { authConfig } from '@/lib/env';
 import { getStorage, setStorage } from '@/utils/storage';
-import { DialogPlugin } from 'tdesign-react/lib';
 
 export interface EffectParam {
   id: string;
