@@ -1,6 +1,7 @@
 import { ArSdk } from 'tencentcloud-webar';
 import { authConfig } from '@/lib/env';
 import { getStorage, setStorage } from '@/utils/storage';
+import { MessagePlugin } from 'tdesign-react/lib';
 
 export interface EffectParam {
   id: string;
@@ -85,6 +86,7 @@ export default class ArClient {
       this.bindEvent();
     } catch(err) {
       console.error('Bind event failed', err);
+      alert(`Bind event failed: ${err.message || 'Unknown error'}`);
     }
     
     this.hasInit = true;
@@ -154,7 +156,9 @@ export default class ArClient {
     });
     this.arSdk.on('error', (err: any) => {
       console.error('ArSdk error', err);
-      alert(`Init failed: ${err.message || 'Unknown error'}`);
+      // alert(`Init failed: ${err.message || 'Unknown error'}`);
+      // throw new Error(`Init failed: ${err.message || 'Unknown error'}`);
+      MessagePlugin.error({ content: 'Resume ar client failed', offset: [0, 200] });
     });
   }
 
