@@ -1,6 +1,7 @@
-import styles from "@/styles/base.module.scss";
-import { Banner } from "@/components/Banner";
-import BasicTabs from "@/components/TryOnDemoLayout";
+import styles from '@/styles/base.module.scss';
+import Banner from '@/components/Banner';
+import TryOnDemoLayout from '@/components/TryOnDemoLayout';
+import { Button, MessagePlugin, Loading, DialogPlugin } from 'tdesign-react/lib';
 export default function Base() {
   return (
     <div className={styles.layout}>
@@ -8,7 +9,7 @@ export default function Base() {
         <Banner></Banner>
       </header>
       <main>
-        <BasicTabs></BasicTabs>
+        <TryOnDemoLayout></TryOnDemoLayout>
       </main>
     </div>
   );

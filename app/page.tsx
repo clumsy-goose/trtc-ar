@@ -1,7 +1,5 @@
-import Base from "@/components/Base";
+import Base from '@/components/Base';
 
 export default function Home() {
-  return (
-    <Base />
-  );
+  return <Base />;
 }

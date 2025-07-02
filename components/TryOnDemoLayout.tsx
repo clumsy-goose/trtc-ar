@@ -1,8 +1,8 @@
-'use client'
+'use client';
 import React from 'react';
 import { Tabs } from 'tdesign-react/lib';
 import 'tdesign-react/dist/tdesign.css';
-import styles from "@/styles/try-on.module.scss";
+import styles from '@/styles/try-on.module.scss';
 import AccordionWebm1 from '@/public/video/accordionVideo_new1.webm';
 import AccordionWebm2 from '@/public/video/accordionVideo_new2.webm';
 import AccordionWebm3 from '@/public/video/accordionVideo_new3.webm';
@@ -262,35 +262,30 @@ export const renderTryOnVideo = (scene: TryOnTabVal) => {
       preload="auto"
       disablePictureInPicture
       height="100%"
-      style={{ objectFit: 'cover', aspectRatio: '0.86' }}
-    >
+      style={{ objectFit: 'cover', aspectRatio: '0.86' }}>
       <source src={VideoMap_webm[scene]} type="video/webm" />
       <source src={VideoMap_mp4[scene]} type="video/mp4" />
     </video>
   );
 };
-export default function BasicTabs() {
-	  const tabs: { label: string; value: TryOnTabVal }[] =  [
-			{ label: 'Makeup', value: 'makeup' },
-			{ label: 'Glasses', value: 'glasses' },
-			{ label: 'Contact Lenses', value: 'contact-lens' },
-			{ label: 'Headwear', value: 'headwear' },
-			{ label: 'Rings', value: 'rings' },
-		];
+export default function TryOnDemoLayout() {
+  const tabs: { label: string; value: TryOnTabVal }[] = [
+    { label: 'Makeup', value: 'makeup' },
+    { label: 'Glasses', value: 'glasses' },
+    { label: 'Contact Lenses', value: 'contact-lens' },
+    { label: 'Headwear', value: 'headwear' },
+    { label: 'Rings', value: 'rings' },
+  ];
 
-	const TryOnDemo = dynamic(() => import('./TryOnDemo'), {
+  const TryOnDemo = dynamic(() => import('./TryOnDemo'), {
     loading: ({ isLoading }) => (isLoading ? <div className={styles.demoLoadWrapper}></div> : null),
     ssr: false,
   });
 
   return (
-		<div>
+    <div>
       <div className={styles.layout}>
-        <Tabs
-          placement="top"
-          size="medium"
-          defaultValue='makeup'
-        >
+        <Tabs placement="top" size="medium" defaultValue="makeup">
           {tabs.map((item, index) => (
             <TabPanel key={`tabPanel${index}`} value={item.value} label={item.label}>
               <TryOnDemo tabVal={item.value as TryOnTabVal} effectList={effectMap[item.value]} />
@@ -298,6 +293,6 @@ export default function BasicTabs() {
           ))}
         </Tabs>
       </div>
-		</div>
+    </div>
   );
 }

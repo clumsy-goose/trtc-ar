@@ -1,22 +1,14 @@
 import { ArSdk } from 'tencentcloud-webar';
-import { webArSignature } from '@/lib/api';
+import { authConfig } from '@/lib/env';
 import { getStorage, setStorage } from '@/utils/storage';
+import { Button, MessagePlugin, Loading, DialogPlugin } from 'tdesign-react/lib';
 
 export interface EffectParam {
   id: string;
   intensity?: number;
 }
 
-const APPID = '1321485964';
-const LICENSE_KEY = '00ae9138661b70e5d6dff713b3145f32';
-
 const videoConfig = { width: 640, height: 480, frameRate: 30 };
-
-async function authFunc() {
-  const res = webArSignature();
-  return res;
-}
-
 export default class ArClient {
   static instance: ArClient | null = null;
 
@@ -63,35 +55,44 @@ export default class ArClient {
       cameraConfig?: any;
     },
   ) {
-    const config: any = {
-      auth: { licenseKey: LICENSE_KEY, appId: APPID, authFunc },
-      module: { beautify: true, segmentation: false, handLandmark: true },
-      language: 'en',
-      lazyInit: true,
-      resolution: 'auto',
-      ...arConfig,
-    };
+    return new Promise<void>(async (resolve, reject) => {
+      const config: any = {
+        auth: authConfig,
+        module: { beautify: true, segmentation: false, handLandmark: true },
+        language: 'en',
+        lazyInit: true,
+        resolution: 'auto',
+        ...arConfig,
+      };
+      console.log('🚀 ~ ArClient ~ config:', config);
 
-    if (type === 'camera') {
-      config.camera = cameraConfig;
-    }
+      if (type === 'camera') {
+        config.camera = cameraConfig;
+      }
 
-    if (type === 'stream') {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: false, video: cameraConfig });
-      this.stream = stream;
-      config.input = stream;
-    }
+      if (type === 'stream') {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: false, video: cameraConfig });
+        this.stream = stream;
+        config.input = stream;
+      }
 
-    if (beautifyConfig) {
-      config.beautify = beautifyConfig;
-    }
+      if (beautifyConfig) {
+        config.beautify = beautifyConfig;
+      }
 
-    const arSdk = new ArSdk(config);
-    this.initType = type;
-    this.arSdk = arSdk;
-    this.bindEvent();
-    this.hasInit = true;
-    this.cameraConfig = cameraConfig;
+      const arSdk = new ArSdk(config);
+      this.initType = type;
+      this.arSdk = arSdk;
+      this.hasInit = true;
+      this.cameraConfig = cameraConfig;
+
+      try {
+        this.bindEvent();
+      } catch (err) {
+        reject(new Error(`Failed to bind events: ${err.message}`));
+        return;
+      }
+    });
   }
 
   destroy() {
@@ -112,8 +113,8 @@ export default class ArClient {
 
   bindEvent() {
     this.arSdk.on('created', async () => {
-      console.log("🚀 ~ ArClient ~ this.arSdk.on ~ created:");
-      
+      console.log('🚀 ~ ArClient ~ this.arSdk.on ~ created:');
+
       try {
         const filterRes: Promise<any[]> = new Promise((resolve) => {
           const list = getStorage('common-filter-list');
@@ -156,6 +157,21 @@ export default class ArClient {
     });
     this.arSdk.on('error', (err: any) => {
       console.error('ArSdk error', err);
+      DialogPlugin({
+        header: 'Dialog-Plugin',
+        body: 'Hi, darling! Do you want to be my lover?',
+        onConfirm: ({ e }) => {
+          console.log('confirm clicked', e);
+        },
+        onClose: ({ e, trigger }) => {
+          console.log('e: ', e);
+          console.log('trigger: ', trigger);
+        },
+        onCloseBtnClick: ({ e }) => {
+          console.log('close btn: ', e);
+        },
+      });
+      alert(`Init failed: ${err.message || 'Unknown error'}`);
     });
   }
 

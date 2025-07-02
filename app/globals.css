@@ -41,11 +41,11 @@ a {
   }
 }
 .t-tabs__nav-item {
-    display: inline-flex;
-    font: var(--td-font-body-medium);
-    color: #99a2b2;
-    overflow: hidden;
-    z-index: 0;
-    cursor: pointer;
-    flex-shrink: 0;
+  display: inline-flex;
+  font: var(--td-font-body-medium);
+  color: #99a2b2;
+  overflow: hidden;
+  z-index: 0;
+  cursor: pointer;
+  flex-shrink: 0;
 }
