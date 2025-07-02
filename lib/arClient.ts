@@ -81,7 +81,12 @@ export default class ArClient {
     const arSdk = new ArSdk(config);
     this.initType = type;
     this.arSdk = arSdk;
-    this.bindEvent();
+    try{
+      this.bindEvent();
+    } catch(err) {
+      console.error('Bind event failed', err);
+    }
+    
     this.hasInit = true;
     this.cameraConfig = cameraConfig;
   
