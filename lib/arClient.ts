@@ -1,7 +1,7 @@
 import { ArSdk } from 'tencentcloud-webar';
 import { authConfig } from '@/lib/env';
 import { getStorage, setStorage } from '@/utils/storage';
-import { Button, MessagePlugin, Loading, DialogPlugin } from 'tdesign-react/lib';
+import { DialogPlugin } from 'tdesign-react/lib';
 
 export interface EffectParam {
   id: string;
@@ -89,7 +89,8 @@ export default class ArClient {
       try {
         this.bindEvent();
       } catch (err) {
-        reject(new Error(`Failed to bind events: ${err.message}`));
+        const message = err instanceof Error ? err.message : String(err);
+        reject(new Error(`Failed to bind events: ${message}`));
         return;
       }
     });
