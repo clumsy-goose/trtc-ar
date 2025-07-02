@@ -1,7 +1,6 @@
 import { ArSdk } from 'tencentcloud-webar';
 import { authConfig } from '@/lib/env';
 import { getStorage, setStorage } from '@/utils/storage';
-import { MessagePlugin } from 'tdesign-react/lib';
 
 export interface EffectParam {
   id: string;
@@ -82,13 +81,7 @@ export default class ArClient {
     const arSdk = new ArSdk(config);
     this.initType = type;
     this.arSdk = arSdk;
-    try{
-      this.bindEvent();
-    } catch(err) {
-      console.error('Bind event failed', err);
-      alert(`Bind event failed: failed`);
-    }
-    
+    this.bindEvent();    
     this.hasInit = true;
     this.cameraConfig = cameraConfig;
   
@@ -156,9 +149,7 @@ export default class ArClient {
     });
     this.arSdk.on('error', (err: any) => {
       console.error('ArSdk error', err);
-      // alert(`Init failed: ${err.message || 'Unknown error'}`);
-      // throw new Error(`Init failed: ${err.message || 'Unknown error'}`);
-      MessagePlugin.error({ content: 'Resume ar client failed', offset: [0, 200] });
+      alert('Web 美颜特效Lisence 绑定的域名与当前域名不一致，检查当前是否在分支预览地址，请切换到项目预览地址进行预览。');
     });
   }
 
