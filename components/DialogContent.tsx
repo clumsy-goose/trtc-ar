@@ -37,7 +37,7 @@ export const En = () => {
         NEXT_PUBLIC_APPID、NEXT_PUBLIC_LICENSE_TOKEN、NEXT_PUBLIC_LICENSE_KEY
       </p>
       <p>
-        How to obtain environment variables:
+        How to obtain environment variables:&nbsp;
         <a
           href="https://trtc.io/document/68777?platform=web&product=beautyar"
           target="_blank"

@@ -151,7 +151,7 @@ function TryOnDemo({ tabVal, effectList }: Props) {
   return (
     <div className={styles.tryOnDemo}>
       <Dialog
-        header="缺少环境变量"
+        header={isIntl() ? 'Missing Environment Variables' : '缺少环境变量'}
         theme="info"
         cancelBtn={false}
         visible={isShowDialog}
