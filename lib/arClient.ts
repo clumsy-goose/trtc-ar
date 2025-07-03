@@ -151,8 +151,8 @@ export default class ArClient {
       console.error('ArSdk error', err);
       alert(
         isIntl()
-          ? 'The domain bound to the Web Beauty Lisence is inconsistent with the current domain. Check whether you are currently in the branch preview address. Please switch to the project preview address for preview.'
-          : 'Web 美颜特效 Lisence 绑定的域名与当前域名不一致，检查当前是否在分支预览地址，请切换到项目预览地址进行预览。',
+          ? 'The domain bound to the Web Beauty Lisence is inconsistent with the current domain. Check whether the preview address is currently accessed from the deployment record. Please switch to the project preview address for preview.'
+          : 'Web 美颜特效 Lisence 绑定的域名与当前域名不一致，检查当前是否是从部署记录访问预览地址，请切换到项目预览地址进行预览。',
       );
     });
   }
