@@ -149,7 +149,7 @@ export default class ArClient {
     });
     this.arSdk.on('error', (err: any) => {
       console.error('ArSdk error', err);
-      alert('Web 美颜特效Lisence 绑定的域名与当前域名不一致，检查当前是否在分支预览地址，请切换到项目预览地址进行预览。');
+      alert('Web 美颜特效 Lisence 绑定的域名与当前域名不一致，检查当前是否在分支预览地址，请切换到项目预览地址进行预览。');
     });
   }
 

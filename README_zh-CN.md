@@ -4,17 +4,27 @@
 
 ## 部署到 Edgeone Pages
 
-### 1. 一键部署到Edgeone Pages，获得预览链接地址
+### 1. 一键部署到Edgeone Pages，获得项目预览链接地址
 
 [![使用 EdgeOne Pages 部署](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://console.cloud.tencent.com/edgeone/pages/new?template=trtc-ar)
 
-![1751441411057](image/README_zh-CN/1751441411057.png)
+![1751509422980](image/README_zh-CN/1751509422980.png)
+
+可在项目列表点击预览
+![1751460123642](image/README_zh-CN/1751460123642.png)
+
+或在项目的项目概览点击预览
+
+![1751460335291](image/README_zh-CN/1751460335291.png)
 
 点击复制预览地址，只用保留域名
+![1751460335291](image/README_zh-CN/1751441411057.png)
+
+**注意不要使用部署记录的预览地址域名，每次重新部署，将会重新生产一条部署记录并绑定新的域名，每条部署记录的域名都不一样，而项目的预览地址是固定的，访问项目的预览地址可以查看最新的部署结果**
 
 ### 2. 获取APPID；绑定预览链接地址， 创建 License，获得License Key 和 Token
 
-    参考文档 ：[获取 Web 美颜特效的 License 和 APPID](https://cloud.tencent.com/document/product/616/71364)
+   参考文档 ：[获取 Web 美颜特效的 License 和 APPID](https://cloud.tencent.com/document/product/616/71364)
 
 1. 获取APPID
    登录腾讯云控制台，进入账号信息 > [基本信息](https://console.cloud.tencent.com/developer "https://console.cloud.tencent.com/developer") 查看 APPID
@@ -29,7 +39,7 @@
 
 ### 3.  设置环境变量，重新部署
 
-1. 在Edgeone Pages控制台项目设置/环境变量新增环境变量
+1. 在Edgeone Pages控制台**项目设置/环境变量**新增环境变量
 
    ```
    NEXT_PUBLIC_APPID = '你的腾讯云APPID'
@@ -38,7 +48,8 @@
    ```
 
    ![1751442074949](image/README_zh-CN/1751442074949.png)
-   2. 重新部署后，再次访问预览链接
+   2. 重新部署后，再次访问项目预览链接
+   ![1751513489230](image/README_zh-CN/1751513489230.png)
 
 ## 本地开发
 
@@ -64,6 +75,12 @@ npm install
 NEXT_PUBLIC_APPID = '你的腾讯云APPID'
 NEXT_PUBLIC_LICENSE_TOKEN = '你的 Web License Token'
 NEXT_PUBLIC_LICENSE_KEY = '你的 Web License Key'
+```
+
+### 本地开发调试
+
+```sh
+npm run dev
 ```
 
 ### 生产环境打包
