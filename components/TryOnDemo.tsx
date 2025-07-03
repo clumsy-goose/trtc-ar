@@ -157,6 +157,7 @@ function TryOnDemo({ tabVal, effectList }: Props) {
         visible={isShowDialog}
         onClose={closeDialog}
         onConfirm={closeDialog}
+        confirmBtn={isIntl() ? 'OK' : '确定'}
         width={600}>
         {isIntl() ? <En /> : <Zh />}
       </Dialog>
