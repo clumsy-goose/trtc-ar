@@ -24,7 +24,7 @@ const baseConfig: NextConfig = {
       ...config.optimization,
       splitChunks: {
         chunks: 'all',
-        minSize: 1024 * 1024, 
+        minSize: 1024 * 1024,
         minChunks: 1,
         maxAsyncRequests: 5,
         maxInitialRequests: 3,

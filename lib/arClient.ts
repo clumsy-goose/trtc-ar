@@ -1,6 +1,7 @@
 import { ArSdk } from 'tencentcloud-webar';
 import { authConfig } from '@/lib/env';
 import { getStorage, setStorage } from '@/utils/storage';
+import { isIntl } from '@/utils/intl';
 
 export interface EffectParam {
   id: string;
@@ -81,10 +82,9 @@ export default class ArClient {
     const arSdk = new ArSdk(config);
     this.initType = type;
     this.arSdk = arSdk;
-    this.bindEvent();    
+    this.bindEvent();
     this.hasInit = true;
     this.cameraConfig = cameraConfig;
-  
   }
 
   destroy() {
@@ -149,7 +149,11 @@ export default class ArClient {
     });
     this.arSdk.on('error', (err: any) => {
       console.error('ArSdk error', err);
-      alert('Web 美颜特效 Lisence 绑定的域名与当前域名不一致，检查当前是否在分支预览地址，请切换到项目预览地址进行预览。');
+      alert(
+        isIntl()
+          ? 'Web 美颜特效 Lisence 绑定的域名与当前域名不一致，检查当前是否在分支预览地址，请切换到项目预览地址进行预览。'
+          : 'The domain bound to the Web Beauty Lisence is inconsistent with the current domain. Check whether you are currently in the branch preview address. Please switch to the project preview address for preview.',
+      );
     });
   }
 

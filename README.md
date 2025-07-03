@@ -1,4 +1,4 @@
-# Web  Beauty Template
+# Web Beauty Template
 
 This template supports Tencent's Web Beauty Filters, allowing you to experience various beauty effects.
 
@@ -15,21 +15,21 @@ You can copy the project domain in the project list
 
 Or copy the project domain name in the project overview![1751460335291](https://raw.githubusercontent.com/clumsy-goose/template-readme-images/main/trtc-ar/1751509962460.png)
 
-**Be careful not to use the preview address domain  of the deployment record. Each time you redeploy, a new deployment record will be generated and bound to a new domain. The domain of each deployment record is different, and the preview address of the project is fixed. You can view the latest deployment results by visiting the preview address of the project.**
+**Be careful not to use the preview address domain of the deployment record. Each time you redeploy, a new deployment record will be generated and bound to a new domain. The domain of each deployment record is different, and the preview address of the project is fixed. You can view the latest deployment results by visiting the preview address of the project.**
 
 ### 2. Create a license，Getting App ID,License Key and Licene Token
 
-   Reference Documentation ：[Getting Web Beauty LIcense](https://trtc.io/document/68777?platform=web&product=beautyar)
+Reference Documentation ：[Getting Web Beauty LIcense](https://trtc.io/document/68777?platform=web&product=beautyar)
 
 1. **Create a license**
    Log in to [TRTC Console &gt; Beauty AR](https://console.trtc.io/beauty/license), and click **Create Trial License**
    ![1751511152451](https://raw.githubusercontent.com/clumsy-goose/template-readme-images/main/trtc-ar/1751511152451.png)Select Web&H5, and fill in the Project Name and Domain obtained in the first step. Once completed, click Confirm.
 2. **Getting App ID, License Key and License Token**
-   Getting the  App ID, License Key and License Token from [License Management](https://console.trtc.io/beauty/license).
+   Getting the App ID, License Key and License Token from [License Management](https://console.trtc.io/beauty/license).
    ![1751512822090](https://raw.githubusercontent.com/clumsy-goose/template-readme-images/main/trtc-ar/1751512822090.png)
    **Web Domain:** The domain information entered during project creation. The license can be used only under this domain or development environment.
 
-### 3.  Set environment variables and redeploy
+### 3. Set environment variables and redeploy
 
 1. Add environment variables in Edgeone Pages console **Project Settings/Environment Variables**
 
