@@ -8,6 +8,8 @@ This template supports Tencent's Web Beauty Filters, allowing you to experience 
 
 [![使用 EdgeOne Pages 部署](https://cdnstatic.tencentcs.com/edgeone/pages/deploy.svg)](https://console.tencent.com/edgeone/pages/new?template=trtc-ar)
 
+![1751509234860](image/README_zh-CN/1751509234860.png)
+
 You can copy the project domain in the project list
 ![1751460123642](image/README_zh-CN/1751509721263.png)
 
@@ -33,41 +35,41 @@ Or copy the project domain name in the project overview![1751460335291](image/RE
 
    ```
    NEXT_PUBLIC_APPID = 'your App ID'
-   NEXT_PUBLIC_LICENSE_TOKEN = 'your License Token'
    NEXT_PUBLIC_LICENSE_KEY = 'your License Key'
+   NEXT_PUBLIC_LICENSE_TOKEN = 'your License Token'
    ```
 
    ![1751515079485](image/README_zh-CN/1751515079485.png)
    **2. After redeployment, visit the project preview link again
    ![1751515186301.png](image/README_zh-CN/1751515186301.png)**
 
-## 本地开发
+## Local Development
 
-### 项目依赖安装
+### Project Setup
 
 ```sh
 npm install
 ```
 
-### 设置环境变量
+### Setting Environment Variables
 
-#### 1. 获取环境变量
+#### 1. Get environment variables
 
-[获取 Web 美颜特效的 License 和 APPID](https://cloud.tencent.com/document/product/616/71364)
+[Getting Web Beauty LIcense](https://trtc.io/document/68777?platform=web&product=beautyar)
 
-#### 2. 创建.env.local文件
+#### 2. Create .env.local
 
 ![1751442977073](image/README_zh-CN/1751442977073.png)
 
-#### 3. 在.env.local写入环境变量：
+#### 3. Write environment variables in .env.local:
 
 ```
-NEXT_PUBLIC_APPID = '你的腾讯云APPID'
-NEXT_PUBLIC_LICENSE_TOKEN = '你的 Web License Token'
-NEXT_PUBLIC_LICENSE_KEY = '你的 Web License Key'
+NEXT_PUBLIC_APPID = 'your App ID'
+NEXT_PUBLIC_LICENSE_KEY = 'your License Key'
+NEXT_PUBLIC_LICENSE_TOKEN = 'your License Token'
 ```
 
-### 生产环境打包
+### Compile and Minify for Production
 
 ```sh
 npm run build

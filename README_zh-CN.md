@@ -43,8 +43,8 @@
 
    ```
    NEXT_PUBLIC_APPID = '你的腾讯云APPID'
-   NEXT_PUBLIC_LICENSE_TOKEN = '你的 Web License Token'
    NEXT_PUBLIC_LICENSE_KEY = '你的 Web License Key'
+   NEXT_PUBLIC_LICENSE_TOKEN = '你的 Web License Token'
    ```
 
    ![1751442074949](image/README_zh-CN/1751442074949.png)
@@ -73,8 +73,8 @@ npm install
 
 ```
 NEXT_PUBLIC_APPID = '你的腾讯云APPID'
-NEXT_PUBLIC_LICENSE_TOKEN = '你的 Web License Token'
 NEXT_PUBLIC_LICENSE_KEY = '你的 Web License Key'
+NEXT_PUBLIC_LICENSE_TOKEN = '你的 Web License Token'
 ```
 
 ### 本地开发调试
