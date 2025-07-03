@@ -285,7 +285,7 @@ export default function TryOnDemoLayout() {
   return (
     <div>
       <div className={styles.layout}>
-        <Tabs placement="top" size="medium" defaultValue="makeup">
+        <Tabs placement="top" size="medium" defaultValue="makeup" className={styles.tabStyle}>
           {tabs.map((item, index) => (
             <TabPanel key={`tabPanel${index}`} value={item.value} label={item.label}>
               <TryOnDemo tabVal={item.value as TryOnTabVal} effectList={effectMap[item.value]} />

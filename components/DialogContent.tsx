@@ -15,7 +15,7 @@ export const Zh = () => {
       <p>
         环境变量获取方式：
         <a href="https://cloud.tencent.com/document/product/616/71364" target="_blank" rel="noopener noreferrer">
-          <span className={styles.highlight}>获取 Web 美颜特效的 License 和 APPID</span>
+          <span className={`${styles.highlight} ${styles.underline}`}>获取 Web 美颜特效的 License 和 APPID</span>
         </a>
       </p>
     </>
@@ -42,7 +42,7 @@ export const En = () => {
           href="https://trtc.io/document/68777?platform=web&product=beautyar"
           target="_blank"
           rel="noopener noreferrer">
-          <span className={styles.highlight}>Getting Web Beauty LIcense</span>
+          <span className={`${styles.highlight} ${styles.underline}`}>Getting Web Beauty LIcense</span>
         </a>
       </p>
     </>

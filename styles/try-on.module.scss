@@ -84,3 +84,20 @@
     }
   }
 }
+.tabStyle {
+  :global(.t-tabs__nav-item) {
+    font-weight: 700;
+    font-size: 16px;
+    height: 56px;
+    color: rgb(153, 162, 178);
+  }
+  :global(.t-tabs__nav-item.t-is-active) {
+    color: rgb(28, 102, 229);
+    text-shadow: rgb(28, 102, 229) 0px 0px 0.3px;
+  }
+  :global(.t-tabs__nav-item:not(.t-is-disabled):not(.t-is-active):hover .t-tabs__nav-item-wrapper) {
+    background-color: #fff;
+    color: rgb(28, 102, 229);
+    text-shadow: rgb(28, 102, 229) 0px 0px 0.3px;
+  }
+}
